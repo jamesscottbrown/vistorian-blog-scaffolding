@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vistorian Blog Scaffolding</title>
+
+    <script>
+
+        // See https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage#the_dispatched_event
+        window.addEventListener("message", (msg) => {
+            console.log(msg.data);
+
+            document.getElementById("bookmarks").innerHTML = JSON.stringify(msg.data.bookmarks, null, 2);
+            document.getElementById("network").innerHTML = JSON.stringify(msg.data.network, null, 2);
+        }, false);
+    </script>
+</head>
+
+
+<body>
+
+<!-- Add your site or application content here -->
+
+<h1>Vistorian Blog scaffolding</h1>
+
+<p>The transferred data can also be seen in the console of the developer tools in this browser window (which cna be
+    opened with Ctr-Shift-I).</p>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<h2>Bookmarks</h2>
+<pre id="bookmarks"></pre>
+
+<h2>Network</h2>
+<pre id="network"></pre>
+
+</body>
+
+</html>
